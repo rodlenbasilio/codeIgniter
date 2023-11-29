@@ -22,8 +22,23 @@
             <div class="col-sm">
         
             </div>
-            <div class="col-sm">
+            <div class="col-md">
                     <form action="<?=base_url()?>register"  method="post">
+                            
+                            <div class="form-group row">
+                                <label for="password" class="col-4 col-form-label">Firstname:</label> 
+                                <div class="col-8">
+                                <input id="password" name="firstname" type="firstname" class="form-control">
+                                </div>
+                            </div>
+                            <br >
+                            <div class="form-group row">
+                                <label for="password" class="col-4 col-form-label">lastname:</label> 
+                                <div class="col-8">
+                                <input id="password" name="lastname" type="lastname" class="form-control">
+                                </div>
+                            </div>
+                            <br>
                             <div class="form-group row">
                                 <label for="username" class="col-4 col-form-label">User Name</label> 
                                 <div class="col-8">
@@ -35,6 +50,13 @@
                                 <label for="password" class="col-4 col-form-label">Password:</label> 
                                 <div class="col-8">
                                 <input id="password" name="password" type="password" class="form-control">
+                                </div>
+                            </div>
+                            <br >
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label">Repeat Password:</label> 
+                                <div class="col-8">
+                                <input id="password" name="rpassword" type="rpassword" class="form-control">
                                 </div>
                             </div>
                     

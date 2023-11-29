@@ -49,10 +49,15 @@ class Authuser extends BaseController
     }
 
 
+    ////////////
+
     public function vregister() : string
     {
         return view('register');
     }
+
+
+    ////////
 
     public function register()
     {
@@ -61,25 +66,36 @@ class Authuser extends BaseController
 
             $username = $this->request->getVar('username');
             $password = sha1($this->request->getVar('password'));
+            $firstname = $this->request->getVar('firstname');
+            $lastname = $this->request->getVar('lastname');
 
-            $newsusers_model = new \App\Models\AuthModel();  
+            if (! $this->validate([
+                'username' => 'required|min_length[5]|max_length[10]',
+                'password' => 'required |min_length[8]',
+                'rpassword' => 'required |matches[rpassword]',
+                'firstname' => 'required |min_length[2]',
+                'lastname' => 'required |min_length[2]',
+            ])) {
+                return view('errors/error_reg', [
+                    'errors' => $this->validator->getErrors(),
+                ]);
+            }
 
-            $register = array("username"=> $username, "password"=>$password);
+            $newsusers_model = new \App\Models\AuthModel();
+            $register = array("username"=> $username, "password"=>$password, "firstname"=>$firstname,"lastname"=>$lastname,);
 
             $newsusers_model->save($register);            
             return redirect()->to(base_url().'login');
+            dd("success!");
         }
 
     }
 
+
+    ///////
     public function logout(){
        
         session()->destroy();
         return redirect()->to(base_url().'login');
     }
-
-   
-   
-
-
 }

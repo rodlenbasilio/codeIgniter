@@ -11,7 +11,7 @@
 
 <div class="container">
 <div class="row">
-
+<center>
     <div class="col">
       <form action="<?=base_url()?>news/article" method="post">  
          <div class="form-group row">
@@ -40,7 +40,7 @@
             </div>
         </div>
     </form>
-
+    </center>
     </div> <!-- col -->
     <div class="col">
     </div>
@@ -48,14 +48,14 @@
     </div>
 </div> <!-- first row -->
 
-
-<br />
+<center><br />
 <div class="row">
 <?php if (! empty($news) && is_array($news)): ?>
   <div class="container">
-        <div class="col">
+        <div class="col-sm-6">
         
          <?php foreach ($news as $news_item): ?>
+            <div class="card-group">
             <div class="card" style="width: 18rem;">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
@@ -66,9 +66,12 @@
             </div>
             <br />
           <?php endforeach ?>
-        
+          </div>
          </div> <!-- col -->
     </div> <!-- container -->
+    </center>
+
+
 <?php else: ?>
 
     <h3>No News</h3>
