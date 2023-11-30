@@ -12,8 +12,11 @@ $routes->get('/', 'Home::index');
 $routes->get('login', [Authuser::class, 'index']);
 $routes->post('login', [Authuser::class, 'authenticate']);
 
-$routes->get('register', [Authuser::class, 'vregister']);
-$routes->post('register', [Authuser::class, 'register']);
+// $routes->get('register', [Authuser::class, 'vregister']);
+// $routes->post('register', [Authuser::class, 'register']);
+
+$routes->get('register', 'FormController::index');
+$routes->match(['get', 'post'], 'FormController/store', 'FormController::store');
 
 $routes->get('news', [News::class, 'index']);           // Add this line
 $routes->post('news/article', [News::class, 'article']);

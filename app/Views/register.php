@@ -10,73 +10,86 @@
 </head>
 
 <body>
-    <div class="container">
-
-    <div class="row">
-            <div class="mt-4 p-5 bg-success text-white rounded">
+<div class="container">
+    <center><div class="row">
+            <div class="mt-3 p-5 bg-success text-white rounded">
                     <h1>News TidBits Register</h1> 
+                    <h6>register - login</h6>
             </div>
             </div>
-            <br>  
-        <div class="row">
-            <div class="col-sm">
-        
+            <br> <br> 
+         
+    <?php $validation = \Config\Services::validation(); ?>
+    <form action="<?php echo base_url(); ?>/FormController/store" method="post">
+      <div class="form-group">
+        <!-- Error -->
+        <?php if($validation->getError('name')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('name'); ?>
             </div>
-            <div class="col-md">
-                    <form action="<?=base_url()?>register"  method="post">
-                            
-                            <div class="form-group row">
-                                <label for="password" class="col-4 col-form-label">Firstname:</label> 
-                                <div class="col-8">
-                                <input id="password" name="firstname" type="firstname" class="form-control">
-                                </div>
-                            </div>
-                            <br >
-                            <div class="form-group row">
-                                <label for="password" class="col-4 col-form-label">lastname:</label> 
-                                <div class="col-8">
-                                <input id="password" name="lastname" type="lastname" class="form-control">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="form-group row">
-                                <label for="username" class="col-4 col-form-label">User Name</label> 
-                                <div class="col-8">
-                                <input id="username" name="username" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <br >
-                            <div class="form-group row">
-                                <label for="password" class="col-4 col-form-label">Password:</label> 
-                                <div class="col-8">
-                                <input id="password" name="password" type="password" class="form-control">
-                                </div>
-                            </div>
-                            <br >
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label">Repeat Password:</label> 
-                                <div class="col-8">
-                                <input id="password" name="rpassword" type="rpassword" class="form-control">
-                                </div>
-                            </div>
-                    
-                            <br />
-                            <div class="form-group row">
-                                <div class="offset-4 col-8">
-                                    <div class="text-center">
-                                        <button name="submit" type="submit" class="btn btn-primary">Register</button>
-                                
-                                    </div>
-                                </div>    
-                            </div>
-                    </form>
-                </div>
-                <div class="col-sm">
-                
-                </div>
+        <?php }?>
+      </div>
+       
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control">
+        <!-- Error -->
+        <?php if($validation->getError('username')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('username'); ?>
+            </div>
+        <?php }?>
+      </div>
 
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control">
+        <!-- Error -->
+        <?php if($validation->getError('password')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('password'); ?>
+            </div>
+        <?php }?>
+      </div>
 
-        </div>
-    </div>
-</body>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" name="cpassword" class="form-control">
+        <!-- Error -->
+        <?php if($validation->getError('cpassword')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('cpassword'); ?>
+            </div>
+        <?php }?>
+      </div>
+
+      <div class="form-group">
+        <label>Firstname</label>
+        <input type="text" name="firstname" class="form-control">
+        <!-- Error -->
+        <?php if($validation->getError('firstname')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('firstname'); ?>
+            </div>
+        <?php }?>
+      </div>
+
+      <div class="form-group">
+        <label>Lastname</label>
+        <input type="text" name="lastname" class="form-control">
+        <!-- Error -->
+        <?php if($validation->getError('lastname')) {?>
+            <div class='alert alert-danger mt-2'>
+              <?= $error = $validation->getError('lastname'); ?>
+            </div>
+        <?php }?>
+      </div>
+
+<br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </div>
+    </form>
+    </center>                                                                                                                           
+  </div></body>
 </html>
